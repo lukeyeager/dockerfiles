@@ -15,6 +15,7 @@ run:
 
 clean:
 	-docker rm $(DOCKER_ID)
+	-docker volume rm $(DOCKER_ID)
 	docker images -q $(DOCKER_ID) | xargs -r docker rmi
 
 dockerclean:

@@ -5,6 +5,7 @@ RUN apt-get install -q -y --force-yes --no-install-recommends \
         build-essential \
         ca-certificates \
         cmake \
+        curl \
         git \
         gfortran \
         graphviz \
@@ -34,12 +35,24 @@ RUN apt-get install -q -y --force-yes --no-install-recommends \
         python-pil \
         python-pip \
         python-protobuf \
+        python-pydot \
         python-scipy \
         python-skimage \
         python-sklearn \
         python-virtualenv \
+        software-properties-common \
         wget \
         vim
+
+RUN add-apt-repository ppa:luke-yeager/digits
+RUN apt-get update -q
+RUN apt-get install -q -y --force-yes --no-install-recommends \
+        python-engineio \
+        python-flaskext.wtf \
+        python-flaskext.socketio \
+        python-lmdb \
+        python-socketio2 \
+        python-wtforms
 
 ADD .bust-cache /tmp
 
